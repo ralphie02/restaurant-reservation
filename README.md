@@ -141,9 +141,9 @@
 - The query for AllocateTable is the other help I got from AI. I don't remember the actual prompt but it was a bit of a back and forth with chatgpt
 - For the most part, I used the code from chatgpt to build AllocateTable and the overlapping validation in Reservation model. I also ask copilot to help build the spec skeleton for me then mostly remove the body....
 - AI snippets that I kept
-    - reservation.rb line 13
+    - reservation.rb - line 13
     - allocate_table.rb - line 7 (it's mostly the subquery)
-    - table.rb - line 8 'where("reservations.period @> ?::timestamp", timestamp)' since I didn't know how to properly query a period with a timestamp - I had to typecast
+    - table.rb - line 8 `where("reservations.period @> ?::timestamp", timestamp)` since I didn't know how to properly query a period with a timestamp - I had to typecast
 ## Assumptions
 - This app only works with 1 restaurant at the moment so I mostly just pick the first one. I wasn't sure in the beginning why there's a restaurant entity but I'm guessing the app is supposed to handle multiple restaurants but since there was no mention of how to select a restaurant, I opted to skip that logic altogether.
 - Param request data always have the correct format
