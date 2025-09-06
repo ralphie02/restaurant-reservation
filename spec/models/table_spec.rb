@@ -36,15 +36,15 @@ RSpec.describe Table, type: :model do
       )
     end
 
-    it 'returns tables reserved at the given timestamp' do
+    it 'returns table_reserved_at_12_for_2 and table_reserved_at_12_for_1' do
       expect(Table.reserved_at(start_at_12)).to include(table_reserved_at_12_for_2, table_reserved_at_12_for_1)
     end
 
-    it 'returns tables reserved at the given timestamp' do
+    it 'returns table_reserved_at_12_for_2' do
       expect(Table.reserved_at(start_at_12 + 1.hours)).to include(table_reserved_at_12_for_2)
     end
 
-    it 'returns tables reserved at the given timestamp' do
+    it 'returns nothing' do
       expect(Table.reserved_at(start_at_12 + 2.hours)).to eq([])
     end
   end

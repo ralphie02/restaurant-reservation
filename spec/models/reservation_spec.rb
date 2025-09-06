@@ -41,7 +41,7 @@ RSpec.describe Reservation, type: :model do
     let(:table) { create(:table) }
 
     context "when reservation is created on a table" do
-      it 'does not raise ActiveRecord::RecordInvalid' do
+      it 'creates a new reservation' do
         expect { create_reservation }.to change { Reservation.count }.by 1
       end
     end

@@ -36,7 +36,7 @@ RSpec.describe CreateReservation do
     context "when table is present" do
       let(:table) { instance_double(Table) }
 
-      it "adds error message 'No available table'" do
+      it "calls assign_attributes with params" do
         call_service
         expect(reservation).to have_received(:assign_attributes).
           with(
