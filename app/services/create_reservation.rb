@@ -1,3 +1,15 @@
+# Service to handle reservation creation on a /reservations POST request.
+# It handles params allocation, potentiatl validation (TODO) and the strategy used
+#   to select an available table.
+#
+# @example
+#   CreateReservation.call(params: reservation_params, reservation: @reservation)
+#
+# @param [ActionController::Parameters] params. Permitted params from the reservations controller
+# @param [Reservation] reservation
+#
+# @return [Boolean] true/false.
+#
 class CreateReservation
   def self.call(...)
     new(...).call
@@ -12,7 +24,7 @@ class CreateReservation
   end
 
   def call
-    reservation.errors.add(:base, "No available table") and return if table.blank?
+    reservation.errors.add(:base, "No available table") and return false if table.blank?
 
     assign_attributes
     reservation.save

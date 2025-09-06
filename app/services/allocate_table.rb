@@ -1,4 +1,13 @@
-# Simple Allocation Strategy to pick the smallest capacity table that fits the party_size
+# Allocation strategy to select the available table for a give party_size and period.
+# It prioritizes the smallest table that can accommodate the party_size.
+#
+# @example
+#   AllocateTable.call(party_size: party_size, period: period)
+#
+# @param [Integer] party_size. Size of reservation
+# @param [Range] period. Time range for the reservation
+#
+# @return [Table] table record or nil
 #
 class AllocateTable
   def self.call(party_size:, period:)
